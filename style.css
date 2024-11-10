@@ -1,0 +1,128 @@
+css
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    text-underline-offset: #fdfcfc; ;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 40px;
+    background-color: rgb(172, 135, 36);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+.profile-picture {
+    border-radius: 60%;
+    width: 200px;
+    height: 200px;
+}
+
+h1, h2 {
+    color: #020202;
+}
+
+h1{
+    text-decoration: underline;
+}
+p {
+    color: #161616;
+}
+
+li {
+    color: #0c0c0c;
+}
+
+li {
+    color: #0d0e0d;
+}
+.p text{
+    size: 30;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #812d2d;
+}
+.hidden-button {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .profile-picture {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+[contenteditable="true"] {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+[contenteditable="true"]:focus {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h1,form{
+    text-align: center;
+    padding: 0,auto;
+    margin: 0,auto;
+    
+
+}
+body,input{
+    color: #050505;
+    box-sizing: border-box;
+    background-color: #404239;
+}
+
+#generatedResume{
+    text-align: center;
+}

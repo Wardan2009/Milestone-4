@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changeable Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgb(186, 5, 241);
+        }
+        .inputname {
+            margin-top: 10px;
+            background-color: #ccc;
+        }
+        .resume {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        h2 {
+            text-size-adjust: 30px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #141414;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #353b36;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="resumeForm">
+            <h1>Changeable Resume Builder</h1>
+            <h2>Personal Information</h2>
+            <fieldset>
+                <label for="picture" class="inputname"><strong>Upload picture</strong></label>
+                <input type="file" name="picture" id="picture" accept="image/*" required><br><br>
+                <label for="name">Name:</label>
+                <textarea id="name" placeholder="Enter Your Name" rows="1" required></textarea>
+                <label for="email">Email:</label>
+                <textarea id="email" placeholder="Enter Your Email" rows="1" required></textarea>
+                <label for="phone">Phone No:</label>
+                <textarea id="phone" placeholder="Enter Your Phone" rows="1" required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <h2>Education</h2>
+                <label for="education">Education:</label>
+                <textarea id="education" placeholder="Enter Your Education" rows="4" required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <h2>Experience</h2>
+                <label for="experience">Experience:</label>
+                <textarea id="experience" placeholder="Enter Your Experience" rows="4" required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <h2>Skills</h2>
+                <label for="skills">Skills:</label>
+                <textarea id="skills" placeholder="Enter Your Skills" rows="4" required></textarea>
+            </fieldset>
+
+            <button type="submit" class="btn">Generate Resume</button>
+        </form>
+    </div>
+
+    <div class="resume" id="resume">
+        <img id="profilePic" class="profile-picture" src="" alt="Profile Picture">
+        <h2 id="displayName"></h2>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Phone No:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Education:</strong> <span id="displayEducation"></span></p>
+        <p><strong>Experience:</strong> <span id="displayExperience"></span></p>
+        <p><strong>Skills:</strong> <span id="displaySkills"></span></p>
+    </div>
+
+    <script>
+        document.getElementById("resumeForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get the values from the form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const education = document.getElementById('education').value;
+            const experience = document.getElementById('experience').value;
+            const skills = document.getElementById('skills').value;
+
+            // Set the values in the resume
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayEmail').textContent = email;
+            document.getElementById('displayPhone').textContent = phone;
+            document.getElementById('displayEducation').textContent = education;
+            document.getElementById('displayExperience').textContent = experience;
+            document.getElementById('displaySkills').textContent = skills;
+
+            // Handle profile picture upload
+            const pictureInput = document.getElementById('picture');
+            if (pictureInput.files && pictureInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                };
+                reader.readAsDataURL(pictureInput.files[0]);
+            }
+
+            // Show the resume
+            document.getElementById('resume').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
